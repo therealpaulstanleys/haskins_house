@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Haskins House Records — Genre Rooms</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <span class="mark">HH</span>
+      <div>
+        <strong>Haskins House Records</strong>
+        <span class="tagline">Genre rooms as chapters</span>
+      </div>
+    </div>
+    <button id="cart-badge" class="cart-badge" type="button">Bag <span id="cart-count">0</span></button>
+  </header>
+
+  <div class="layout">
+    <!-- Room navigation (hash / data-room) -->
+    <nav class="room-nav" aria-label="Genre rooms">
+      <p class="nav-label">Rooms</p>
+      <ul id="room-list"></ul>
+    </nav>
+
+    <div class="chapter">
+      <!-- Sticky essay column on desktop -->
+      <article class="essay-col">
+        <header class="essay-head">
+          <p id="room-kicker" class="room-kicker">Room</p>
+          <h1 id="room-title">—</h1>
+        </header>
+        <div id="room-essay" class="room-essay"></div>
+      </article>
+
+      <!-- Sleeve grid always visible; sort never depends on essay -->
+      <section class="grid-col" aria-label="Records in this room">
+        <div class="grid-toolbar">
+          <h2 class="grid-heading">On the shelf</h2>
+          <label class="sort-label">
+            Sort
+            <select id="sort-control">
+              <option value="curated">Curated</option>
+              <option value="price">Price</option>
+              <option value="year">Year</option>
+            </select>
+          </label>
+        </div>
+        <div id="sleeve-grid" class="sleeve-grid"></div>
+      </section>
+    </div>
+  </div>
+
+  <!-- Long scroll spy targets (one section per room for IntersectionObserver) -->
+  <div id="spy-root" class="spy-root" aria-hidden="true"></div>
+
+  <aside id="cart-panel" class="cart-panel" aria-hidden="true">
+    <div class="cart-head">
+      <h2>Bag</h2>
+      <button id="cart-close" type="button" aria-label="Close">×</button>
+    </div>
+    <ul id="cart-list"></ul>
+    <div class="cart-foot"><span>Total</span><strong id="cart-total">$0</strong></div>
+  </aside>
+  <div id="cart-backdrop" class="cart-backdrop" hidden></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
