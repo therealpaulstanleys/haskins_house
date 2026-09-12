@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Haskins House Records — Vinyl Wall</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">◎</span>
+      <span>Haskins House Records</span>
+    </div>
+    <div class="controls">
+      <label class="search-wrap">
+        <span class="sr-only">Search</span>
+        <input id="search" type="search" placeholder="Search titles / artists…" autocomplete="off" />
+      </label>
+      <button id="grid-toggle" type="button" class="grid-toggle" aria-pressed="false" title="Switch to 2D grid">
+        Grid
+      </button>
+    </div>
+    <button id="cart-badge" class="cart-badge" type="button" aria-label="Open cart">
+      Bag <span id="cart-count">0</span>
+    </button>
+  </header>
+
+  <p id="mode-hint" class="mode-hint">3D wall · hover to pull forward · click for details · toggle Grid for flat view</p>
+  <p id="three-status" class="three-status" hidden></p>
+
+  <!-- WebGL canvas host -->
+  <div id="wall-3d" class="wall-3d" aria-label="3D vinyl wall"></div>
+
+  <!-- 2D CSS grid fallback / alternate mode (same data) -->
+  <div id="wall-2d" class="wall-2d" hidden>
+    <div id="grid-2d" class="grid-2d"></div>
+    <p id="grid-empty" class="grid-empty" hidden>No sleeves match your search.</p>
+  </div>
+
+  <!-- 2D detail overlay (never inside WebGL) -->
+  <div id="detail-overlay" class="detail-overlay" hidden>
+    <div class="detail-card" role="dialog" aria-modal="true" aria-labelledby="detail-title">
+      <button id="detail-close" type="button" class="detail-close" aria-label="Close">×</button>
+      <div id="detail-swatch" class="detail-swatch"></div>
+      <h2 id="detail-title"></h2>
+      <p id="detail-artist" class="detail-artist"></p>
+      <p id="detail-meta" class="detail-meta"></p>
+      <p id="detail-price" class="detail-price"></p>
+      <button id="detail-add" type="button" class="detail-add">Add to bag</button>
+    </div>
+  </div>
+
+  <!-- Cart: always 2D side panel -->
+  <aside id="cart-panel" class="cart-panel" aria-hidden="true">
+    <div class="cart-head">
+      <h2>Bag</h2>
+      <button id="cart-close" type="button" aria-label="Close">×</button>
+    </div>
+    <ul id="cart-list"></ul>
+    <div class="cart-foot">
+      <span>Total</span>
+      <strong id="cart-total">$0</strong>
+    </div>
+  </aside>
+  <div id="cart-backdrop" class="cart-backdrop" hidden></div>
+
+  <!-- Three.js from CDN; app.js handles load failure → 2D only -->
+  <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
