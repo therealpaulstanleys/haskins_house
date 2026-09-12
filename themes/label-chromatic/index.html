@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Haskins House Records — Vinyl Shop</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Soft page tint overlay (driven by color-block hover) -->
+  <div id="page-tint" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="brand">
+      <span class="brand-mark">HH</span>
+      <span class="brand-name">Haskins House Records</span>
+    </div>
+    <nav class="filter-nav" role="tablist" aria-label="Category filter">
+      <button class="filter-btn is-active" data-filter="all" role="tab" aria-selected="true">All</button>
+      <button class="filter-btn" data-filter="new" role="tab" aria-selected="false">New</button>
+      <button class="filter-btn" data-filter="vinyl" role="tab" aria-selected="false">Vinyl</button>
+      <button class="filter-btn" data-filter="merch" role="tab" aria-selected="false">Merch</button>
+    </nav>
+    <button id="cart-badge" class="cart-badge" type="button" aria-label="Cart, 0 items">
+      <span class="cart-icon">Bag</span>
+      <span id="cart-count" class="cart-count">0</span>
+    </button>
+  </header>
+
+  <!-- Magazine-style hero -->
+  <section class="hero magazine-hero">
+    <div class="hero-block teal" data-tint="teal">
+      <p class="hero-kicker">Issue 12 · Spring</p>
+      <h1>Color as catalog</h1>
+      <p>Teal sleeves, coral stamps, yellow margins — shop by hue.</p>
+    </div>
+    <div class="hero-block coral" data-tint="coral">
+      <p class="hero-kicker">Featured</p>
+      <h2>Midnight Parade</h2>
+      <p>Limited translucent press · 500 copies</p>
+    </div>
+    <div class="hero-block yellow" data-tint="yellow">
+      <p class="hero-kicker">Merch drop</p>
+      <h2>Block tote</h2>
+      <p>Heavy cotton · screen-printed</p>
+    </div>
+  </section>
+
+  <main>
+    <section class="stories" aria-label="Featured release stories">
+      <h2 class="section-title">Featured stories</h2>
+      <div id="story-cards" class="story-cards"></div>
+    </section>
+
+    <section class="catalog" aria-label="Shop catalog">
+      <h2 class="section-title">Shop the blocks</h2>
+      <div id="product-grid" class="product-grid"></div>
+      <p id="empty-state" class="empty-state" hidden>No items in this category.</p>
+    </section>
+  </main>
+
+  <!-- Sticky cart panel -->
+  <aside id="cart-panel" class="cart-panel" aria-hidden="true">
+    <div class="cart-panel-head">
+      <h2>Your bag</h2>
+      <button id="cart-close" type="button" aria-label="Close cart">×</button>
+    </div>
+    <ul id="cart-items" class="cart-items"></ul>
+    <div class="cart-panel-foot">
+      <span>Total</span>
+      <strong id="cart-total">$0</strong>
+    </div>
+  </aside>
+  <div id="cart-backdrop" class="cart-backdrop" hidden></div>
+
+  <!-- Flying chip layer for add-to-bag animation -->
+  <div id="fly-layer" class="fly-layer" aria-hidden="true"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
