@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Haskins House Records — Mint Cassette</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="nav">
+    <nav aria-label="Primary">
+      <a href="#vinyl">Dig Vinyl</a>
+      <a href="#vintage">Vintage</a>
+      <a href="#bst">Buy Sell Trade</a>
+    </nav>
+    <button type="button" class="bag" id="cart-badge" aria-label="Bag, 0 items">
+      Bag
+      <svg class="bag-svg" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8">
+        <path d="M6 8h12l-1 12H7L6 8z" />
+        <path d="M9 8V6a3 3 0 0 1 6 0v2" />
+      </svg>
+      <span id="cart-count">0</span>
+    </button>
+  </header>
+
+  <section class="hero" aria-label="Cassette logo hero">
+    <img
+      class="hero-cassette"
+      src="../../assets/logo-cassette.png"
+      alt="Haskins House Records cassette mark — Vinyl &amp; Vintage Clothes Mix · Buy Sell Trade · Call/Text 740-771-0017 · 534 2nd Street, Portsmouth, OH 45662"
+    />
+    <img class="hero-ref" src="../../assets/mint-home-ref.png" alt="" aria-hidden="true" />
+  </section>
+
+  <main class="main">
+    <section id="vinyl" class="block">
+      <h2>Vinyl</h2>
+      <div class="grid" id="vinyl-grid"></div>
+    </section>
+
+    <section id="vintage" class="block">
+      <h2>Vintage Clothes</h2>
+      <p class="hint">Colored placeholder blocks — no product photography.</p>
+      <div class="grid clothes" id="vintage-grid"></div>
+    </section>
+
+    <section id="bst" class="bst">
+      <h2>Buy Sell Trade</h2>
+      <p class="tag">Vinyl &amp; Vintage Clothes Mix</p>
+      <p>Call/Text <a href="tel:7407710017">740-771-0017</a></p>
+      <p>534 2nd Street, Portsmouth, OH 45662</p>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <strong>Haskins House Records</strong>
+    <span>Buy Sell Trade</span>
+    <a href="tel:7407710017">740-771-0017</a>
+    <span>534 2nd Street, Portsmouth, OH 45662</span>
+  </footer>
+
+  <script src="../../assets/hydrate-png.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
