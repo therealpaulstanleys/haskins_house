@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Haskins House Records — Warhol Site</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="./">HASKINS HOUSE RECORDS</a>
+    <nav aria-label="Primary">
+      <a href="#vinyl">Shop Vinyl</a>
+      <span class="sep" aria-hidden="true">/</span>
+      <a href="#vintage">Vintage</a>
+      <span class="sep" aria-hidden="true">/</span>
+      <a href="#bst">Buy Sell Trade</a>
+    </nav>
+  </header>
+
+  <section class="hero" aria-label="Cassette print hero">
+    <img
+      src="../../assets/warhol-cassette-grid.png"
+      alt="Warhol-style cassette grid — Vinyl &amp; Vintage Clothes Mix · Buy Sell Trade · Call/Text 740-771-0017 · 534 2nd Street, Portsmouth, OH 45662"
+    />
+  </section>
+
+  <div class="cta-bars" role="navigation" aria-label="Quick links">
+    <a class="bar yellow" href="#new">NEW ARRIVALS</a>
+    <div class="bar white" aria-hidden="true"></div>
+    <a class="bar magenta" href="#vinyl">SHOP NOW</a>
+  </div>
+
+  <section id="new" class="section">
+    <h2>New Arrivals</h2>
+    <p class="lede">Placeholder catalog only — fictional titles for layout review.</p>
+    <div class="grid" id="product-grid"></div>
+  </section>
+
+  <section id="vinyl" class="section alt">
+    <h2>Shop Vinyl</h2>
+    <div class="grid" id="vinyl-grid"></div>
+  </section>
+
+  <section id="vintage" class="section">
+    <h2>Vintage</h2>
+    <div class="clothes" id="vintage-grid"></div>
+  </section>
+
+  <section id="bst" class="bst">
+    <h2>Buy Sell Trade</h2>
+    <p>Bring your vinyl &amp; vintage. Call/Text <a href="tel:7407710017">740-771-0017</a></p>
+    <p>534 2nd Street, Portsmouth, OH 45662</p>
+    <p class="tag">Vinyl &amp; Vintage Clothes Mix</p>
+  </section>
+
+  <footer class="site-foot">
+    <span>Haskins House Records</span>
+    <span>Buy Sell Trade</span>
+    <a href="tel:7407710017">740-771-0017</a>
+    <span>534 2nd Street, Portsmouth, OH 45662</span>
+    <button type="button" class="bag-btn" id="cart-badge" aria-label="Bag, 0 items">
+      Bag <span id="cart-count">0</span>
+    </button>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
