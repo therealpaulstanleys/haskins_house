@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Haskins House Records — Shop</title>
+  <link rel="stylesheet" href="../styles/warhol.css" />
+  <link rel="stylesheet" href="./shop.css" />
+</head>
+<body class="hhr-warhol">
+  <nav class="nav-mini" aria-label="Pages">
+    <a href="../grid/index.html">Grid</a>
+    <a href="./index.html">Shop</a>
+    <a href="../pdp/index.html">PDP</a>
+  </nav>
+
+  <header class="header-bar">
+    <span class="brand">Haskins House Records</span>
+    <button type="button" class="cart-btn" id="cart-toggle" aria-label="Open cart">
+      Bag <span class="cart-badge" id="cart-count">0</span>
+    </button>
+  </header>
+
+  <section class="hero" aria-label="Brand diptych">
+    <div class="hero-panel hero-toad">
+      <img src="../assets/toad-red-lime.jpeg" alt="Haskins House Records toad logo" />
+      <span class="hero-caption">Toad</span>
+    </div>
+    <div class="hero-panel hero-cassette">
+      <img src="../assets/cassette-mint.jpeg" alt="Haskins House Records cassette logo" />
+      <span class="hero-caption">Cassette</span>
+    </div>
+  </section>
+
+  <main class="cols">
+    <section class="col col-vinyl" aria-labelledby="vinyl-h">
+      <h2 class="col-head" id="vinyl-h">Vinyl</h2>
+      <div class="col-body">
+        <div class="lp-grid">
+          <article class="lp">
+            <div class="lp-art">
+              <img src="../assets/cassette-lime.jpeg" alt="" />
+            </div>
+            <h3 class="lp-title">Cosmic Echoes</h3>
+            <p class="lp-price">$18.00</p>
+            <button type="button" class="btn-warhol btn-pink add" data-name="Cosmic Echoes" data-price="18.00">Add</button>
+          </article>
+          <article class="lp">
+            <div class="lp-art sleeve-b" aria-hidden="true"><span style="font-family:var(--font-display);color:#000;background:rgba(255,255,255,.5);padding:.2rem;">NEON</span></div>
+            <h3 class="lp-title">Neon Nights</h3>
+            <p class="lp-price">$22.00</p>
+            <button type="button" class="btn-warhol btn-pink add" data-name="Neon Nights" data-price="22.00">Add</button>
+          </article>
+          <article class="lp">
+            <div class="lp-art sleeve-c" aria-hidden="true"><span>CLOPE</span></div>
+            <h3 class="lp-title">Groove Theory</h3>
+            <p class="lp-price">$15.00</p>
+            <button type="button" class="btn-warhol btn-pink add" data-name="Groove Theory" data-price="15.00">Add</button>
+          </article>
+          <article class="lp">
+            <div class="lp-art sleeve-d" aria-hidden="true"></div>
+            <h3 class="lp-title">Static Dance</h3>
+            <p class="lp-price">$20.00</p>
+            <button type="button" class="btn-warhol btn-pink add" data-name="Static Dance" data-price="20.00">Add</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="col col-vintage" aria-labelledby="vintage-h">
+      <h2 class="col-head" id="vintage-h">Vintage</h2>
+      <div class="col-body">
+        <div class="vintage-list">
+          <article class="v-item">
+            <div class="v-thumb garment-denim" aria-hidden="true"></div>
+            <div class="v-meta">1980s Denim Jacket<span class="price">$45.00</span></div>
+            <button type="button" class="btn-warhol btn-yellow add" data-name="1980s Denim Jacket" data-price="45.00">Add</button>
+          </article>
+          <article class="v-item">
+            <div class="v-thumb garment-tee" aria-hidden="true"></div>
+            <div class="v-meta">Retro Band Tee<span class="price">$30.00</span></div>
+            <button type="button" class="btn-warhol btn-yellow add" data-name="Retro Band Tee" data-price="30.00">Add</button>
+          </article>
+          <article class="v-item">
+            <div class="v-thumb garment-boots" aria-hidden="true"></div>
+            <div class="v-meta">Vintage Leather Boots<span class="price">$65.00</span></div>
+            <button type="button" class="btn-warhol btn-yellow add" data-name="Vintage Leather Boots" data-price="65.00">Add</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="col col-bst" aria-labelledby="bst-h">
+      <h2 class="col-head" id="bst-h">Buy Sell Trade</h2>
+      <div class="col-body">
+        <div class="bst-stamps">
+          <a class="stamp" href="tel:7407710017">Sell Us<br>Your Stuff<br><small style="font-size:0.65rem;display:block;margin-top:0.4rem;">Shop Now</small></a>
+          <a class="stamp big" href="tel:7407710017">Shop<br>Now</a>
+        </div>
+        <div class="bst-phone">
+          <span class="label">Call or Text</span>
+          <a href="tel:7407710017">740-771-0017</a>
+        </div>
+        <p style="text-align:center;margin-top:1.25rem;font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;opacity:0.9;">
+          Vinyl &amp; Vintage Clothes Mix
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer-bar">
+    534 2nd Street, Portsmouth, OH 45662
+  </footer>
+
+  <div class="cart-backdrop" id="cart-backdrop"></div>
+  <aside class="cart-panel" id="cart-panel" aria-label="Shopping bag">
+    <h2>Your Bag</h2>
+    <ul id="cart-list"><li class="empty">Empty — add vinyl or vintage.</li></ul>
+    <button type="button" class="btn-warhol btn-cyan" id="cart-close" style="width:100%;margin-top:0.5rem;">Close</button>
+  </aside>
+
+  <script>
+    (function () {
+      const countEl = document.getElementById("cart-count");
+      const listEl = document.getElementById("cart-list");
+      const panel = document.getElementById("cart-panel");
+      const backdrop = document.getElementById("cart-backdrop");
+      const toggle = document.getElementById("cart-toggle");
+      const closeBtn = document.getElementById("cart-close");
+      const cart = [];
+
+      function render() {
+        countEl.textContent = String(cart.length);
+        if (!cart.length) {
+          listEl.innerHTML = '<li class="empty">Empty — add vinyl or vintage.</li>';
+          return;
+        }
+        listEl.innerHTML = cart.map(function (item, i) {
+          return '<li>' + item.name + ' · $' + item.price + '</li>';
+        }).join("");
+      }
+
+      function openCart() {
+        panel.classList.add("open");
+        backdrop.classList.add("open");
+      }
+      function closeCart() {
+        panel.classList.remove("open");
+        backdrop.classList.remove("open");
+      }
+
+      document.querySelectorAll(".add").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          cart.push({ name: btn.dataset.name, price: btn.dataset.price });
+          render();
+          btn.textContent = "Added ✓";
+          setTimeout(function () { btn.textContent = "Add"; }, 700);
+        });
+      });
+
+      toggle.addEventListener("click", openCart);
+      closeBtn.addEventListener("click", closeCart);
+      backdrop.addEventListener("click", closeCart);
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") closeCart();
+      });
+    })();
+  </script>
+  <script src="../assets/hydrate-assets.js"></script>
+</body>
+</html>
