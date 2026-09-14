@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Toad Sessions — Haskins House Records</title>
+  <link rel="stylesheet" href="../styles/warhol.css" />
+  <link rel="stylesheet" href="./pdp.css" />
+</head>
+<body class="hhr-warhol">
+  <nav class="top-nav" aria-label="Primary">
+    <div class="stamp-mini" aria-hidden="true">
+      <img src="../assets/cassette-mint.jpeg" alt="" />
+    </div>
+    <a href="../grid/index.html">Grid</a>
+    <a href="../shop/index.html">Haskins</a>
+    <a href="../shop/index.html">House</a>
+    <a href="../shop/index.html">Records</a>
+    <a href="../shop/index.html">Vinyl</a>
+    <a href="../shop/index.html">Vinyl &amp; Clothes</a>
+    <span style="opacity:0.5">1 of 1</span>
+    <button type="button" class="bag" id="bag-btn">Bag <span class="cart-badge" id="bag-count">0</span></button>
+  </nav>
+
+  <main class="pdp">
+    <div class="art-col">
+      <div class="sleeve-stage">
+        <div class="sleeve-main" id="sleeve" data-way="pink-yellow">
+          <img id="sleeve-img" src="../assets/toad-red-lime.jpeg" alt="The Toad Sessions sleeve art" />
+          <div class="mis-layer" id="mis-layer"></div>
+        </div>
+      </div>
+      <div class="thumbs" role="group" aria-label="Colorways">
+        <button type="button" class="thumb" data-way="yellow-pink" aria-label="Yellow toad on pink">
+          <img src="../assets/toad-red-lime.jpeg" alt="" />
+        </button>
+        <button type="button" class="thumb" data-way="cyan-black" aria-label="Cyan toad on black">
+          <img src="../assets/toad-red-lime.jpeg" alt="" />
+        </button>
+        <button type="button" class="thumb active" data-way="pink-yellow" aria-label="Pink toad on yellow">
+          <img src="../assets/toad-red-lime.jpeg" alt="" />
+        </button>
+        <button type="button" class="thumb" data-way="lime-purple" aria-label="Lime toad on purple">
+          <img src="../assets/toad-red-lime.jpeg" alt="" />
+        </button>
+      </div>
+    </div>
+
+    <div class="info-col">
+      <p class="brand-line">Haskins House Records</p>
+      <h1 class="title">The Toad Sessions</h1>
+      <p class="artist">DJ Ribbit</p>
+      <div class="price-bar">
+        <p class="price">$28.00</p>
+      </div>
+      <div class="cta-stack">
+        <button type="button" class="btn-warhol btn-pink" id="add-bag">Add to Bag</button>
+        <button type="button" class="btn-warhol btn-cyan" id="listen-btn" aria-pressed="false">Listen</button>
+      </div>
+      <div class="listen-bar" id="listen-bar" aria-hidden="true"></div>
+      <p class="preview-note" id="preview-note"></p>
+
+      <section class="pressing" aria-labelledby="press-h">
+        <h2 id="press-h">Pressing Notes</h2>
+        <p>
+          Limited edition 180g vinyl.<br />
+          Includes vintage clothes mix.<br />
+          Buy, Sell, Trade.<br />
+          Call or text <a href="tel:7407710017">740-771-0017</a>.
+        </p>
+      </section>
+
+      <div class="stamps-row">
+        <div class="stamp-toad">
+          <img src="../assets/toad-bw.jpeg" alt="Toad stamp" />
+        </div>
+        <div class="stamp-cass">
+          <img src="../assets/cassette-mint.jpeg" alt="Cassette stamp" />
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    534 2nd Street, Portsmouth, OH 45662 · Vinyl &amp; Vintage Clothes Mix
+  </footer>
+
+  <script>
+    (function () {
+      const sleeve = document.getElementById("sleeve");
+      const mis = document.getElementById("mis-layer");
+      const thumbs = document.querySelectorAll(".thumb");
+      const addBtn = document.getElementById("add-bag");
+      const bagCount = document.getElementById("bag-count");
+      const listenBtn = document.getElementById("listen-btn");
+      const listenBar = document.getElementById("listen-bar");
+      const previewNote = document.getElementById("preview-note");
+      let count = 0;
+      let previewing = false;
+
+      const misColors = {
+        "pink-yellow": "#ff007a",
+        "yellow-pink": "#00e5ff",
+        "cyan-black": "#b8ff00",
+        "lime-purple": "#ffe600"
+      };
+
+      thumbs.forEach(function (t) {
+        t.addEventListener("click", function () {
+          const way = t.dataset.way;
+          sleeve.dataset.way = way;
+          mis.style.background = misColors[way] || "#ff007a";
+          thumbs.forEach(function (x) { x.classList.remove("active"); });
+          t.classList.add("active");
+        });
+      });
+
+      addBtn.addEventListener("click", function () {
+        count += 1;
+        bagCount.textContent = String(count);
+        addBtn.textContent = "Added ✓";
+        setTimeout(function () { addBtn.textContent = "Add to Bag"; }, 800);
+      });
+
+      listenBtn.addEventListener("click", function () {
+        previewing = !previewing;
+        listenBtn.setAttribute("aria-pressed", previewing ? "true" : "false");
+        listenBtn.textContent = previewing ? "Stop Preview" : "Listen";
+        listenBar.classList.toggle("active", previewing);
+        previewNote.textContent = previewing
+          ? "▶ Preview playing — The Toad Sessions (stub)"
+          : "";
+      });
+    })();
+  </script>
+  <script src="../assets/hydrate-assets.js"></script>
+</body>
+</html>
