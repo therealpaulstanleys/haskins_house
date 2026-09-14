@@ -5,9 +5,435 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>The Toad Sessions — Haskins House Records</title>
   <link rel="stylesheet" href="../styles/warhol.css" />
+  <style>
+    body.hhr-warhol {
+      background: #000;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .top-nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.75rem 1.25rem;
+      padding: 0.75rem 1.25rem;
+      border-bottom: 3px solid #222;
+      font-family: var(--font-display);
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #fff;
+    }
+    .top-nav a {
+      color: #fff;
+      text-decoration: none;
+      opacity: 0.85;
+    }
+    .top-nav a:hover { color: var(--cyan); opacity: 1; }
+    .top-nav .bag {
+      margin-left: auto;
+      background: var(--hot-pink);
+      color: #fff;
+      border: 2px solid #fff;
+      padding: 0.3rem 0.55rem;
+      font-size: 0.7rem;
+    }
+    .stamp-mini {
+      width: 88px;
+      height: 64px;
+      border: 2px dashed #000;
+      outline: 3px solid var(--lime);
+      background: var(--lime);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .stamp-mini img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: contrast(1.2);
+    }
+
+    .pdp {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 1.5rem auto 2rem;
+      padding: 0 1.25rem;
+      flex: 1;
+      width: 100%;
+    }
+    @media (max-width: 800px) {
+      .pdp { grid-template-columns: 1fr; gap: 1.5rem; }
+    }
+
+    .art-col { perspective: 1200px; }
+    .sleeve-stage {
+      position: relative;
+      aspect-ratio: 1;
+      max-width: 480px;
+      margin: 0 auto;
+      transform: rotateY(-12deg) rotateX(2deg);
+      transform-style: preserve-3d;
+      transition: transform 0.35s ease;
+    }
+    .sleeve-stage:hover { transform: rotateY(-4deg) rotateX(0); }
+    .sleeve-main {
+      width: 100%;
+      height: 100%;
+      border: 5px solid #000;
+      box-shadow:
+        12px 12px 0 #000,
+        16px 16px 0 var(--hot-pink),
+        -4px -4px 0 var(--cyan);
+      overflow: hidden;
+      position: relative;
+      background: var(--yellow);
+      transition: background 0.25s ease, filter 0.25s ease;
+    }
+    .sleeve-main img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: filter 0.25s ease, opacity 0.25s ease;
+    }
+    .sleeve-main .mis-layer {
+      position: absolute;
+      inset: 0;
+      background: var(--hot-pink);
+      mix-blend-mode: multiply;
+      opacity: 0.12;
+      transform: translate(4px, -3px);
+      pointer-events: none;
+      transition: background 0.25s, opacity 0.25s;
+    }
+
+    /* Colorway filter presets applied via data-way */
+    .sleeve-main[data-way="pink-yellow"] { background: var(--yellow); }
+    .sleeve-main[data-way="pink-yellow"] img {
+      filter: contrast(1.15) saturate(1.3) hue-rotate(0deg);
+    }
+    .sleeve-main[data-way="yellow-pink"] { background: var(--hot-pink); }
+    .sleeve-main[data-way="yellow-pink"] img {
+      filter: contrast(1.2) saturate(1.4) hue-rotate(-40deg) brightness(1.05);
+    }
+    .sleeve-main[data-way="cyan-black"] { background: #0a0a0a; }
+    .sleeve-main[data-way="cyan-black"] img {
+      filter: contrast(1.35) saturate(1.6) hue-rotate(160deg) brightness(0.95);
+    }
+    .sleeve-main[data-way="lime-purple"] { background: var(--purple); }
+    .sleeve-main[data-way="lime-purple"] img {
+      filter: contrast(1.25) saturate(1.5) hue-rotate(80deg) brightness(1.05);
+    }
+
+    .thumbs {
+      display: flex;
+      gap: 0.6rem;
+      justify-content: center;
+      margin-top: 1.25rem;
+      flex-wrap: wrap;
+    }
+    .thumb {
+      width: 64px;
+      height: 64px;
+      border: 3px solid #444;
+      padding: 0;
+      cursor: pointer;
+      overflow: hidden;
+      background: #111;
+      position: relative;
+      box-shadow: 3px 3px 0 #000;
+    }
+    .thumb.active {
+      border-color: var(--cyan);
+      box-shadow: 3px 3px 0 var(--hot-pink);
+    }
+    .thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .thumb[data-way="yellow-pink"] { background: var(--hot-pink); }
+    .thumb[data-way="yellow-pink"] img { filter: hue-rotate(-40deg) saturate(1.4) contrast(1.2); }
+    .thumb[data-way="cyan-black"] { background: #000; }
+    .thumb[data-way="cyan-black"] img { filter: hue-rotate(160deg) saturate(1.6) contrast(1.35); }
+    .thumb[data-way="pink-yellow"] { background: var(--yellow); }
+    .thumb[data-way="pink-yellow"] img { filter: contrast(1.15) saturate(1.3); }
+    .thumb[data-way="lime-purple"] { background: var(--purple); }
+    .thumb[data-way="lime-purple"] img { filter: hue-rotate(80deg) saturate(1.5) contrast(1.25); }
+
+    .info-col {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.75rem;
+    }
+    .brand-line {
+      font-family: var(--font-display);
+      color: var(--cyan);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      margin: 0;
+    }
+    .title {
+      font-family: var(--font-display);
+      color: var(--hot-pink);
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin: 0;
+      line-height: 1.05;
+      text-shadow: 3px 3px 0 #000;
+    }
+    .artist {
+      font-family: var(--font-display);
+      color: var(--yellow);
+      font-size: clamp(1.1rem, 3vw, 1.5rem);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin: 0;
+    }
+    .price-bar {
+      border-top: 5px solid var(--yellow);
+      padding-top: 0.75rem;
+      margin-top: 0.25rem;
+    }
+    .price {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      color: #fff;
+      margin: 0;
+    }
+    .cta-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      margin-top: 0.5rem;
+    }
+    .cta-stack .btn-warhol {
+      width: 100%;
+      text-align: center;
+      font-size: 1rem;
+      padding: 0.9rem;
+    }
+    .listen-bar {
+      height: 5px;
+      background: var(--cyan);
+      margin-top: 0.25rem;
+      box-shadow: 0 0 12px var(--cyan);
+      opacity: 0.4;
+      transition: opacity 0.2s;
+    }
+    .listen-bar.active {
+      opacity: 1;
+      animation: pulse 1s ease infinite alternate;
+    }
+    @keyframes pulse {
+      from { box-shadow: 0 0 8px var(--cyan); }
+      to { box-shadow: 0 0 22px var(--hot-pink); }
+    }
+    .preview-note {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--mint);
+      min-height: 1.2em;
+      margin: 0;
+    }
+
+    .pressing {
+      margin-top: 1rem;
+      border-top: 3px solid #333;
+      padding-top: 1rem;
+    }
+    .pressing h2 {
+      font-family: var(--font-display);
+      color: #fff;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      margin: 0 0 0.5rem;
+    }
+    .pressing p {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      line-height: 1.55;
+      text-transform: uppercase;
+      color: #eee;
+    }
+    .pressing a { color: var(--lime); }
+
+    .stamps-row {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 1.25rem;
+      align-items: flex-end;
+    }
+    .stamp-toad {
+      width: 90px;
+      height: 90px;
+      background: #fff;
+      border: 3px dashed #000;
+      outline: 4px solid #fff;
+      box-shadow: 4px 4px 0 var(--cyan);
+      overflow: hidden;
+    }
+    .stamp-toad img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(1) contrast(1.4);
+    }
+    .stamp-cass {
+      width: 110px;
+      height: 72px;
+      background: var(--mint);
+      border: 3px dashed #000;
+      outline: 4px solid var(--mint);
+      box-shadow: 4px 4px 0 var(--hot-pink);
+      overflow: hidden;
+    }
+    .stamp-cass img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: contrast(1.2);
+    }
+
+    .site-footer { margin-top: auto; }
+  </style>
 </head>
 <body class="hhr-warhol">
-  <p>placeholder - will replace</p>
+  <nav class="top-nav" aria-label="Primary">
+    <div class="stamp-mini" aria-hidden="true">
+      <img src="../assets/cassette-mint.jpeg" alt="" />
+    </div>
+    <a href="../01-substance-grid/index.html">Grid</a>
+    <a href="../02-shop/index.html">Haskins</a>
+    <a href="../02-shop/index.html">House</a>
+    <a href="../02-shop/index.html">Records</a>
+    <a href="../02-shop/index.html">Vinyl</a>
+    <a href="../02-shop/index.html">Vinyl &amp; Clothes</a>
+    <span style="opacity:0.5">1 of 1</span>
+    <button type="button" class="bag" id="bag-btn">Bag <span class="cart-badge" id="bag-count">0</span></button>
+  </nav>
+
+  <main class="pdp">
+    <div class="art-col">
+      <div class="sleeve-stage">
+        <div class="sleeve-main" id="sleeve" data-way="pink-yellow">
+          <img id="sleeve-img" src="../assets/toad-red-lime.jpeg" alt="The Toad Sessions sleeve art" />
+          <div class="mis-layer" id="mis-layer"></div>
+        </div>
+      </div>
+      <div class="thumbs" role="group" aria-label="Colorways">
+        <button type="button" class="thumb" data-way="yellow-pink" aria-label="Yellow toad on pink">
+          <img src="../assets/toad-red-lime.jpeg" alt="" />
+        </button>
+        <button type="button" class="thumb" data-way="cyan-black" aria-label="Cyan toad on black">
+          <img src="../assets/toad-red-lime.jpeg" alt="" />
+        </button>
+        <button type="button" class="thumb active" data-way="pink-yellow" aria-label="Pink toad on yellow">
+          <img src="../assets/toad-red-lime.jpeg" alt="" />
+        </button>
+        <button type="button" class="thumb" data-way="lime-purple" aria-label="Lime toad on purple">
+          <img src="../assets/toad-red-lime.jpeg" alt="" />
+        </button>
+      </div>
+    </div>
+
+    <div class="info-col">
+      <p class="brand-line">Haskins House Records</p>
+      <h1 class="title">The Toad Sessions</h1>
+      <p class="artist">DJ Ribbit</p>
+      <div class="price-bar">
+        <p class="price">$28.00</p>
+      </div>
+      <div class="cta-stack">
+        <button type="button" class="btn-warhol btn-pink" id="add-bag">Add to Bag</button>
+        <button type="button" class="btn-warhol btn-cyan" id="listen-btn" aria-pressed="false">Listen</button>
+      </div>
+      <div class="listen-bar" id="listen-bar" aria-hidden="true"></div>
+      <p class="preview-note" id="preview-note"></p>
+
+      <section class="pressing" aria-labelledby="press-h">
+        <h2 id="press-h">Pressing Notes</h2>
+        <p>
+          Limited edition 180g vinyl.<br />
+          Includes vintage clothes mix.<br />
+          Buy, Sell, Trade.<br />
+          Call or text <a href="tel:7407710017">740-771-0017</a>.
+        </p>
+      </section>
+
+      <div class="stamps-row">
+        <div class="stamp-toad">
+          <img src="../assets/toad-bw.jpeg" alt="Toad stamp" />
+        </div>
+        <div class="stamp-cass">
+          <img src="../assets/cassette-mint.jpeg" alt="Cassette stamp" />
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    534 2nd Street, Portsmouth, OH 45662 · Vinyl &amp; Vintage Clothes Mix
+  </footer>
+
+  <script>
+    (function () {
+      const sleeve = document.getElementById("sleeve");
+      const mis = document.getElementById("mis-layer");
+      const thumbs = document.querySelectorAll(".thumb");
+      const addBtn = document.getElementById("add-bag");
+      const bagCount = document.getElementById("bag-count");
+      const listenBtn = document.getElementById("listen-btn");
+      const listenBar = document.getElementById("listen-bar");
+      const previewNote = document.getElementById("preview-note");
+      let count = 0;
+      let previewing = false;
+
+      const misColors = {
+        "pink-yellow": "#ff007a",
+        "yellow-pink": "#00e5ff",
+        "cyan-black": "#b8ff00",
+        "lime-purple": "#ffe600"
+      };
+
+      thumbs.forEach(function (t) {
+        t.addEventListener("click", function () {
+          const way = t.dataset.way;
+          sleeve.dataset.way = way;
+          mis.style.background = misColors[way] || "#ff007a";
+          thumbs.forEach(function (x) { x.classList.remove("active"); });
+          t.classList.add("active");
+        });
+      });
+
+      addBtn.addEventListener("click", function () {
+        count += 1;
+        bagCount.textContent = String(count);
+        addBtn.textContent = "Added ✓";
+        setTimeout(function () { addBtn.textContent = "Add to Bag"; }, 800);
+      });
+
+      listenBtn.addEventListener("click", function () {
+        previewing = !previewing;
+        listenBtn.setAttribute("aria-pressed", previewing ? "true" : "false");
+        listenBtn.textContent = previewing ? "Stop Preview" : "Listen";
+        listenBar.classList.toggle("active", previewing);
+        previewNote.textContent = previewing
+          ? "▶ Preview playing — The Toad Sessions (stub)"
+          : "";
+      });
+    })();
+  </script>
   <script src="../assets/hydrate-jpeg.js"></script>
 </body>
 </html>
