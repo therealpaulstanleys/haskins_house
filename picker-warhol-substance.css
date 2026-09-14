@@ -1,0 +1,265 @@
+/* —— Group headings —— */
+.group-title {
+  margin: 2.25rem 0 0.85rem;
+  font-family: system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.group-title:first-of-type { margin-top: 0.5rem; }
+
+/* Warhol splash: 3×3 cassette colors */
+.preview.warhol-splash {
+  background: #050505;
+  display: grid;
+  place-items: center;
+  padding: 12px;
+}
+
+.preview.warhol-splash .cass-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 34px);
+  grid-template-rows: repeat(3, 28px);
+  gap: 3px;
+}
+
+.preview.warhol-splash .cass-grid i {
+  display: block;
+  border-radius: 2px;
+  border: 1px solid rgba(0,0,0,0.35);
+}
+
+.preview.warhol-splash .cass-grid i:nth-child(1) { background: #98e8b0; }
+.preview.warhol-splash .cass-grid i:nth-child(2) { background: #b8f000; }
+.preview.warhol-splash .cass-grid i:nth-child(3) { background: #9b6bff; }
+.preview.warhol-splash .cass-grid i:nth-child(4) { background: #f0c48a; }
+.preview.warhol-splash .cass-grid i:nth-child(5) { background: #3b82f6; }
+.preview.warhol-splash .cass-grid i:nth-child(6) { background: #ff4fa3; }
+.preview.warhol-splash .cass-grid i:nth-child(7) { background: #f5f5f5; }
+.preview.warhol-splash .cass-grid i:nth-child(8) { background: #f5e000; }
+.preview.warhol-splash .cass-grid i:nth-child(9) { background: #ff6b5a; }
+
+/* Warhol hero site chrome */
+.preview.warhol-hero {
+  display: flex;
+  flex-direction: column;
+  background: #111;
+}
+
+.preview.warhol-hero .wh-nav {
+  height: 14px;
+  background: #000;
+  border-bottom: 1px solid #222;
+}
+
+.preview.warhol-hero .wh-hero {
+  flex: 1;
+  background:
+    linear-gradient(90deg, #98e8b0 0 12.5%, #b8f000 12.5% 25%, #9b6bff 25% 37.5%, #ff8a65 37.5% 50%,
+      #ff4fa3 50% 62.5%, #2dd4bf 62.5% 75%, #fda4af 75% 87.5%, #f5e000 87.5% 100%);
+  opacity: 0.9;
+}
+
+.preview.warhol-hero .wh-bars {
+  display: grid;
+  grid-template-columns: 1fr 0.5fr 1fr;
+  height: 22px;
+}
+
+.preview.warhol-hero .wh-bars b:nth-child(1) { background: #ffe600; }
+.preview.warhol-hero .wh-bars b:nth-child(2) { background: #fff; }
+.preview.warhol-hero .wh-bars b:nth-child(3) { background: #e91e8c; }
+
+/* Risograph zine */
+.preview.riso {
+  background: #d62828;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: center;
+}
+
+.preview.riso .toad-dot {
+  width: 18px;
+  height: 14px;
+  background: #c6ff3d;
+  clip-path: polygon(10% 20%, 90% 5%, 95% 90%, 5% 95%);
+}
+
+.preview.riso .torn-banner {
+  background: #f6f1e4;
+  color: #7ab800;
+  font-family: system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 0.45rem 0.5rem;
+  clip-path: polygon(0 8%, 8% 0, 20% 6%, 35% 0, 50% 7%, 65% 0, 80% 6%, 92% 0, 100% 8%, 100% 92%, 90% 100%, 70% 94%, 50% 100%, 30% 94%, 10% 100%, 0 90%);
+}
+
+.preview.riso .torn-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+
+.preview.riso .torn-cards i {
+  display: block;
+  height: 28px;
+  background: #f6f1e4;
+  box-shadow: 3px 3px 0 rgba(198, 255, 61, 0.45);
+}
+
+/* Mint cassette */
+.preview.mint {
+  display: flex;
+  flex-direction: column;
+  background: #f4f0e8;
+}
+
+.preview.mint .mint-nav {
+  height: 12px;
+  background: #000;
+}
+
+.preview.mint .mint-hero {
+  flex: 1;
+  background: #9aefb8;
+  display: grid;
+  place-items: center;
+}
+
+.preview.mint .mint-hero span {
+  width: 72px;
+  height: 42px;
+  border: 2px solid #111;
+  border-radius: 3px;
+  background:
+    linear-gradient(#9aefb8, #9aefb8) padding-box,
+    repeating-linear-gradient(90deg, #111 0 2px, transparent 2px 6px);
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.15);
+  position: relative;
+}
+
+.preview.mint .mint-hero span::before,
+.preview.mint .mint-hero span::after {
+  content: "";
+  position: absolute;
+  top: 55%;
+  width: 10px;
+  height: 10px;
+  border: 2px solid #111;
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+.preview.mint .mint-hero span::before { left: 18px; }
+.preview.mint .mint-hero span::after { right: 18px; }
+
+
+/* —— Warhol Substance (primary denser) —— */
+a.card.card-featured {
+  border-color: #ff007a;
+  box-shadow: 0 0 0 1px rgba(255, 0, 122, 0.35);
+}
+
+a.card.card-featured:hover,
+a.card.card-featured:focus-visible {
+  border-color: #00e5ff;
+  box-shadow: 0 16px 40px rgba(255, 0, 122, 0.25);
+}
+
+.preview.warhol-substance {
+  background: #111;
+  display: grid;
+  place-items: center;
+  padding: 12px;
+}
+
+.preview.warhol-substance .ws-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 36px);
+  grid-template-rows: repeat(3, 30px);
+  gap: 4px;
+}
+
+.preview.warhol-substance .ws-grid i {
+  display: block;
+  border: 2px solid #000;
+  box-shadow: 2px 2px 0 rgba(0,0,0,0.7);
+}
+
+.preview.warhol-substance .ws-grid i:nth-child(1) { background: #000; }
+.preview.warhol-substance .ws-grid i:nth-child(2) { background: #e10600; }
+.preview.warhol-substance .ws-grid i:nth-child(3) { background: #ff007a; }
+.preview.warhol-substance .ws-grid i:nth-child(4) { background: #c41e3a; }
+.preview.warhol-substance .ws-grid i:nth-child(5) { background: #98e8b0; }
+.preview.warhol-substance .ws-grid i:nth-child(6) { background: #1e4dff; }
+.preview.warhol-substance .ws-grid i:nth-child(7) { background: #ffe600; }
+.preview.warhol-substance .ws-grid i:nth-child(8) { background: #222; }
+.preview.warhol-substance .ws-grid i:nth-child(9) { background: #1a9b8e; }
+
+.preview.warhol-substance-shop {
+  display: flex;
+  flex-direction: column;
+  background: #0a0a0a;
+}
+
+.preview.warhol-substance-shop .ws-diptych {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.preview.warhol-substance-shop .ws-diptych b:nth-child(1) { background: #ff007a; }
+.preview.warhol-substance-shop .ws-diptych b:nth-child(2) { background: #ffe600; }
+
+.preview.warhol-substance-shop .ws-cols {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr 0.9fr;
+  height: 28px;
+}
+
+.preview.warhol-substance-shop .ws-cols span:nth-child(1) { background: #b8ff00; }
+.preview.warhol-substance-shop .ws-cols span:nth-child(2) { background: #e10600; }
+.preview.warhol-substance-shop .ws-cols span:nth-child(3) { background: #6b2dff; }
+
+.preview.warhol-substance-pdp {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 10px;
+  padding: 12px;
+  background: #000;
+  align-items: center;
+}
+
+.preview.warhol-substance-pdp .ws-sleeve {
+  aspect-ratio: 1;
+  background: #ffe600;
+  border: 3px solid #000;
+  box-shadow: 4px 4px 0 #ff007a, -2px -2px 0 #00e5ff;
+  transform: rotate(-3deg);
+}
+
+.preview.warhol-substance-pdp .ws-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.preview.warhol-substance-pdp .ws-info span:nth-child(1) {
+  height: 10px;
+  width: 90%;
+  background: #ff007a;
+}
+
+.preview.warhol-substance-pdp .ws-info span:nth-child(2) {
+  height: 8px;
+  width: 60%;
+  background: #ffe600;
+}
