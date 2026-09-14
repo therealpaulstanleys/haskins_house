@@ -39,6 +39,7 @@ body.hhr-warhol {
 
 .hhr-warhol a { color: inherit; }
 
+/* Silk-screen panel */
 .silk {
   border: var(--outline);
   box-shadow: var(--misreg);

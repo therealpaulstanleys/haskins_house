@@ -26,7 +26,7 @@ Or open each `index.html` directly in a browser (file:// works; relative asset p
 | `02-shop/` | Full shop: header, toad+cassette hero diptych, VINYL / VINTAGE / BUY SELL TRADE columns, footer address. Add buttons bump a bag badge; optional cart panel. |
 | `03-pdp/` | Record PDP for fictional “The Toad Sessions” by DJ Ribbit ($28). Four colorway thumbs swap sleeve filters; Add to bag + Listen preview stub; pressing notes + stamps. |
 
-Catalog artists/titles are fictional. Logo assets under `assets/` are real brand files (toad, cassette, storefront).
+Catalog artists/titles are fictional. Logo assets under `assets/` are real brand files (toad, cassette, storefront, substance mockup refs).
 
 ## Shared styles
 
