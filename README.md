@@ -1,6 +1,6 @@
 # Haskins House Records — theme drafts
 
-Local static drafts for **Haskins House Records** review. CloudAgent/GitHub is not used; everything lives on the shared box under this folder.
+Local static drafts for **Haskins House Records** review. Theme packs live under this folder; draft branches are pushed to GitHub for review.
 
 ## Brand chrome (use exactly)
 
@@ -34,6 +34,18 @@ Web Design comps copied into `assets/` (`warhol-cassette-grid.png`, `warhol-site
 | `themes/risograph-zine/` | Red/lime zine shop; toad mark in chrome; torn-paper cards; DIY product cards + bag badge. |
 | `themes/mint-cassette/` | Mint hero with cassette logo; black nav Dig Vinyl / Vintage / Buy Sell Trade / Bag; dual grids Vinyl + Vintage Clothes (clothes = CSS color blocks, no invented product photos). |
 
+## Warhol Substance (primary denser direction)
+
+Integrated from the Web Design Warhol substance pack into `themes/warhol-substance/`.
+
+| Path | What it proves |
+|------|----------------|
+| `themes/warhol-substance/grid/` | Interactive 3×3 silk-screen grid (cassette, toad, vinyl, jacket, storefront, BST, rack); cell overlay + Add interest. |
+| `themes/warhol-substance/shop/` | Full shop: toad+cassette hero diptych; VINYL / VINTAGE / BUY SELL TRADE columns; bag + cart panel. |
+| `themes/warhol-substance/pdp/` | Record PDP (“The Toad Sessions” / DJ Ribbit — fictional); colorway thumbs; Add to bag + Listen stub. |
+
+Shared: `themes/warhol-substance/styles/warhol.css` and real brand assets under `themes/warhol-substance/assets/` (logos, storefront, substance mockup refs). Source pack at `/workspace/haskins-warhol-substance/` was copied, not modified in place.
+
 ## Earlier interactive demos
 
 | Path | What it proves |
@@ -56,4 +68,4 @@ The root `index.html` + `picker.css` are a visual launcher only (grouped: Print 
 
 ## Status
 
-**Draft for review** — four new print/brand comps plus three earlier interactive demos.
+**Draft for review** — Warhol Substance (primary denser: grid / shop / PDP) plus four print/brand comps and three earlier interactive demos.

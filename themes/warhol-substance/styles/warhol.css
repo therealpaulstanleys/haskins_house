@@ -1,0 +1,156 @@
+/* Haskins House Records — Warhol / silk-screen shared tokens */
+:root {
+  --hot-pink: #ff007a;
+  --cyan: #00e5ff;
+  --yellow: #ffe600;
+  --lime: #b8ff00;
+  --purple: #6b2dff;
+  --red: #ff1a1a;
+  --mint: #7dffc3;
+  --butterscotch: #f5b942;
+  --black: #0a0a0a;
+  --white: #fffef8;
+  --ink: #111;
+  --outline: 4px solid #000;
+  --misreg: 6px 6px 0 #ff007a;
+  --misreg-cyan: 5px 5px 0 #00e5ff;
+  --font-display: "Arial Black", "Helvetica Neue", Impact, sans-serif;
+  --font-body: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body.hhr-warhol {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-body);
+  background: var(--black);
+  color: var(--white);
+  -webkit-font-smoothing: antialiased;
+}
+
+.hhr-warhol img {
+  max-width: 100%;
+  display: block;
+  image-rendering: auto;
+}
+
+.hhr-warhol a { color: inherit; }
+
+/* Silk-screen panel */
+.silk {
+  border: var(--outline);
+  box-shadow: var(--misreg);
+  position: relative;
+  overflow: hidden;
+}
+
+.silk::after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0,0,0,0.03) 2px,
+      rgba(0,0,0,0.03) 3px
+    );
+  mix-blend-mode: multiply;
+  opacity: 0.35;
+}
+
+.stamp-edge {
+  border: 3px dashed #c41e3a;
+  outline: 4px solid #f5f0e6;
+  background: #f5f0e6;
+  box-shadow: 4px 4px 0 #000;
+}
+
+.btn-warhol {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border: 3px solid #000;
+  padding: 0.75rem 1.25rem;
+  cursor: pointer;
+  box-shadow: 4px 4px 0 #000;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+.btn-warhol:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 #000;
+}
+.btn-warhol:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 #000;
+}
+.btn-pink { background: var(--hot-pink); color: #fff; }
+.btn-cyan { background: var(--cyan); color: #000; }
+.btn-yellow { background: var(--yellow); color: #000; }
+.btn-lime { background: var(--lime); color: #000; }
+
+.cart-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.5rem;
+  height: 1.5rem;
+  padding: 0 0.35rem;
+  border-radius: 999px;
+  background: var(--hot-pink);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  border: 2px solid #000;
+  margin-left: 0.35rem;
+}
+
+.site-header {
+  background: #000;
+  color: var(--yellow);
+  text-align: center;
+  padding: 0.85rem 1rem;
+  font-family: var(--font-display);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-bottom: 4px solid var(--hot-pink);
+  position: sticky;
+  top: 0;
+  z-index: 40;
+}
+.site-header a { text-decoration: none; color: inherit; }
+.site-header .tag {
+  display: block;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: var(--cyan);
+  margin-top: 0.25rem;
+  font-family: var(--font-body);
+  font-weight: 700;
+}
+
+.site-footer {
+  background: #000;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  font-family: var(--font-display);
+  letter-spacing: 0.06em;
+  border-top: 4px solid var(--cyan);
+  margin-top: auto;
+}
+.site-footer a { color: var(--lime); }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0);
+  border: 0;
+}
