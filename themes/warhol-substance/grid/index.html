@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Haskins House Records — Substance Grid</title>
+  <link rel="stylesheet" href="../styles/warhol.css" />
+  <link rel="stylesheet" href="./grid.css" />
+</head>
+<body class="hhr-warhol">
+  <header class="site-header">
+    <a href="../shop/index.html">Haskins House Records</a>
+    <span class="tag">Vinyl &amp; Vintage Clothes Mix · Buy Sell Trade</span>
+  </header>
+
+  <div class="grid-wrap">
+    <div class="intro">
+      <h1>Substance Grid</h1>
+      <p>Click a cell · Esc to close</p>
+    </div>
+    <nav class="nav-links" aria-label="Pages">
+      <a href="./index.html">Grid</a>
+      <a href="../shop/index.html">Shop</a>
+      <a href="../pdp/index.html">PDP</a>
+    </nav>
+
+    <div class="warhol-grid" id="grid" role="list">
+      <button type="button" class="cell cell-cassette" role="listitem" data-id="cassette"
+        data-label="Cassette Logo" data-desc="Mint silk-screen cassette — Vinyl &amp; Vintage Clothes Mix. Call or text 740-771-0017."
+        data-img="../assets/cassette-mint.jpeg" aria-label="Cassette logo cell">
+        <div class="art"><img class="logo" src="../assets/cassette-mint.jpeg" alt="Haskins House Records cassette" /></div>
+        <span class="label-chip">Cassette</span>
+      </button>
+
+      <button type="button" class="cell cell-toad" role="listitem" data-id="toad"
+        data-label="Toad Logo" data-desc="Lime toad on hot red — house H mark on the sweater. Haskins House Records."
+        data-img="../assets/toad-red-lime.jpeg" aria-label="Toad logo cell">
+        <div class="art"><img class="logo" src="../assets/toad-red-lime.jpeg" alt="Haskins House Records toad" /></div>
+        <span class="label-chip">Toad</span>
+      </button>
+
+      <button type="button" class="cell cell-vinyl" role="listitem" data-id="vinyl"
+        data-label="Vinyl Sleeve" data-desc="Cyan sleeve on hot pink — house H records mark peeking disc."
+        data-bg="var(--hot-pink)" aria-label="Vinyl sleeve cell">
+        <div class="art">
+          <div class="vinyl-art"><div class="disc"></div><div class="house">H</div></div>
+        </div>
+        <span class="label-chip">Vinyl</span>
+      </button>
+
+      <button type="button" class="cell cell-jacket" role="listitem" data-id="jacket"
+        data-label="Leather Jacket" data-desc="Vintage leather — Buy Sell Trade the real thing at 534 2nd Street."
+        data-bg="#c41e3a" aria-label="Leather jacket cell">
+        <div class="art">
+          <div class="jacket-art">
+            <div class="body">
+              <div class="lapel-l"></div>
+              <div class="lapel-r"></div>
+              <div class="zip"></div>
+            </div>
+          </div>
+          <span class="jacket-text">HASKINS HOUSE RECORDS</span>
+        </div>
+        <span class="label-chip">Jacket</span>
+      </button>
+
+      <button type="button" class="cell cell-cassette-alt" role="listitem" data-id="cassette-alt"
+        data-label="Cassette (Lime)" data-desc="Lime colorway cassette — 534 2nd Street, Portsmouth, OH 45662."
+        data-img="../assets/cassette-lime.jpeg" aria-label="Lime cassette cell">
+        <div class="art"><img class="logo" src="../assets/cassette-lime.jpeg" alt="Lime cassette logo" /></div>
+        <span class="label-chip">Cassette Alt</span>
+      </button>
+
+      <button type="button" class="cell cell-store" role="listitem" data-id="store"
+        data-label="Storefront" data-desc="534 2nd Street, Portsmouth, OH 45662 — Vinyl &amp; Vintage Clothes Mix."
+        data-img="../assets/storefront.jpeg" data-bg="#1e4dff" aria-label="Storefront cell">
+        <div class="art">
+          <img class="logo" src="../assets/storefront.jpeg" alt="Haskins House storefront" style="filter: contrast(1.3) saturate(1.4) brightness(1.05);" />
+        </div>
+        <span class="label-chip">Store</span>
+      </button>
+
+      <button type="button" class="cell cell-bst" role="listitem" data-id="bst"
+        data-label="Buy Sell Trade" data-desc="Bring your vinyl &amp; vintage. Call or text 740-771-0017."
+        data-bg="var(--yellow)" aria-label="Buy Sell Trade stamp cell">
+        <div class="art">
+          <div class="bst-art">
+            <div class="big">BUY<br>SELL<br>TRADE</div>
+            <div class="small">HASKINS HOUSE RECORDS</div>
+          </div>
+        </div>
+        <span class="label-chip">BST</span>
+      </button>
+
+      <button type="button" class="cell cell-toad-alt" role="listitem" data-id="toad-alt"
+        data-label="Toad (B&amp;W Stamp)" data-desc="High-contrast toad stamp — silk-screen alternate."
+        data-img="../assets/toad-bw.jpeg" aria-label="Toad black and white cell">
+        <div class="art"><img class="logo" src="../assets/toad-bw.jpeg" alt="Toad B&amp;W stamp" style="filter: contrast(1.25);" /></div>
+        <span class="label-chip">Toad Alt</span>
+      </button>
+
+      <button type="button" class="cell cell-rack" role="listitem" data-id="rack"
+        data-label="Clothes Rack" data-desc="Vintage clothes mix on the rack — denim, leather, band tees."
+        data-bg="#1a9b8e" aria-label="Clothes rack cell">
+        <div class="art">
+          <div class="rack-art">
+            <div class="pole"></div>
+            <div class="leg-l"></div>
+            <div class="leg-r"></div>
+            <div class="hanger"></div>
+            <div class="hanger"></div>
+            <div class="hanger"></div>
+            <div class="hanger"></div>
+          </div>
+        </div>
+        <span class="label-chip">Rack</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-labelledby="ov-title" hidden>
+    <div class="overlay-panel">
+      <button type="button" class="close" id="ov-close" aria-label="Close">×</button>
+      <div class="preview" id="ov-preview"></div>
+      <h2 id="ov-title"></h2>
+      <p id="ov-desc"></p>
+      <div class="overlay-actions">
+        <button type="button" class="btn-warhol btn-pink" id="ov-interest">Add interest</button>
+        <a class="btn-warhol btn-cyan" href="tel:7407710017">Call 740-771-0017</a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    534 2nd Street, Portsmouth, OH 45662 · <a href="tel:7407710017">740-771-0017</a>
+  </footer>
+
+  <script>
+    (function () {
+      const overlay = document.getElementById("overlay");
+      const preview = document.getElementById("ov-preview");
+      const title = document.getElementById("ov-title");
+      const desc = document.getElementById("ov-desc");
+      const closeBtn = document.getElementById("ov-close");
+      const interestBtn = document.getElementById("ov-interest");
+      let lastFocus = null;
+
+      function openCell(btn) {
+        lastFocus = btn;
+        title.textContent = btn.dataset.label || "";
+        desc.textContent = btn.dataset.desc || "";
+        preview.innerHTML = "";
+        preview.style.background = btn.dataset.bg || "#111";
+
+        if (btn.dataset.img) {
+          const img = document.createElement("img");
+          img.src = btn.dataset.img;
+          img.alt = btn.dataset.label || "";
+          preview.appendChild(img);
+        } else {
+          const clone = btn.querySelector(".art").cloneNode(true);
+          clone.style.width = "100%";
+          clone.style.height = "100%";
+          preview.appendChild(clone);
+        }
+
+        interestBtn.textContent = "Add interest";
+        interestBtn.disabled = false;
+        overlay.hidden = false;
+        overlay.classList.add("open");
+        closeBtn.focus();
+      }
+
+      function closeOverlay() {
+        overlay.classList.remove("open");
+        overlay.hidden = true;
+        preview.innerHTML = "";
+        if (lastFocus) lastFocus.focus();
+      }
+
+      document.querySelectorAll(".cell").forEach(function (btn) {
+        btn.addEventListener("click", function () { openCell(btn); });
+        btn.addEventListener("keydown", function (e) {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            openCell(btn);
+          }
+        });
+      });
+
+      closeBtn.addEventListener("click", closeOverlay);
+      overlay.addEventListener("click", function (e) {
+        if (e.target === overlay) closeOverlay();
+      });
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && overlay.classList.contains("open")) closeOverlay();
+      });
+      interestBtn.addEventListener("click", function () {
+        interestBtn.textContent = "Interested ✓";
+        interestBtn.disabled = true;
+      });
+    })();
+  </script>
+  <script src="../assets/hydrate-assets.js"></script>
+</body>
+</html>
